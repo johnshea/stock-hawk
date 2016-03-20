@@ -11,4 +11,5 @@
   <string name="input_prefill"></string>
   <string name="widget_title">Today\'s Market</string>
   <string name="network_toast">Uh-oh! This app requires an internet connection</string>
+  <string name="stock_symbol_does_not_exist">Searched for stock symbol does not exist.</string>
 </resources>
