@@ -83,6 +83,14 @@ class QuoteWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFac
         String symbol = mCursor.getString(1);
         String value = mCursor.getString(4);
 
+        // Coloring of background drawable
+        // http://stackoverflow.com/questions/6201410/how-to-change-widget-layout-background-programatically
+        if (mCursor.getInt(mCursor.getColumnIndex("is_up")) == 1){
+            rv.setInt(R.id.change, "setBackgroundResource", R.drawable.percent_change_pill_green);
+        } else {
+            rv.setInt(R.id.change, "setBackgroundResource", R.drawable.percent_change_pill_red);
+        }
+
         rv.setTextViewText(R.id.stock_symbol, symbol);
         rv.setTextViewText(R.id.change, value);
 
