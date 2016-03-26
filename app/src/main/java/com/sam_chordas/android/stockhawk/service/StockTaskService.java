@@ -132,6 +132,13 @@ public class StockTaskService extends GcmTaskService{
           if ( addedStockSymbol.size() != 0 ) {
             mContext.getContentResolver().applyBatch(QuoteProvider.AUTHORITY,
                     addedStockSymbol);
+
+            // Stock quote was added to the list
+            // Notify collection widget to update itself
+            Intent intent = new Intent();
+            intent.setAction("com.sam_chordas.android.stockhawk.ACTION_DATA_UPDATED");
+            mContext.sendBroadcast(intent);
+
           } else {
             //http://www.vogella.com/tutorials/AndroidBroadcastReceiver/article.html
             // Searched for stock symbol does not exist

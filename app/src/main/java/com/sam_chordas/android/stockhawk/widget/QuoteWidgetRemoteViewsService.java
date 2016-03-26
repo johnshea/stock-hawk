@@ -94,6 +94,8 @@ class QuoteWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFac
         rv.setTextViewText(R.id.stock_symbol, symbol);
         rv.setTextViewText(R.id.change, value);
 
+        rv.setOnClickFillInIntent(R.id.widget_list_item, new Intent());
+
         return rv;
     }
 
