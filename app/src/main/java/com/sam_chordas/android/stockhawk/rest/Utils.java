@@ -58,6 +58,9 @@ public class Utils {
   }
 
   public static String truncateBidPrice(String bidPrice){
+    if (bidPrice.equalsIgnoreCase("null")) {
+      bidPrice = "0.00";
+    }
     bidPrice = String.format("%.2f", Float.parseFloat(bidPrice));
     return bidPrice;
   }
