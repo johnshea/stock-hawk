@@ -92,7 +92,10 @@ class QuoteWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFac
         }
 
         rv.setTextViewText(R.id.stock_symbol, symbol);
+        rv.setContentDescription(R.id.stock_symbol, mContext.getString(R.string.talkback_stock_symbol) + symbol);
+
         rv.setTextViewText(R.id.change, value);
+        rv.setContentDescription(R.id.change, mContext.getString(R.string.talkback_change) +  value);
 
         rv.setOnClickFillInIntent(R.id.widget_list_item, new Intent());
 

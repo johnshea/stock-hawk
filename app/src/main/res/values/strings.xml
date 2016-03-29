@@ -13,4 +13,9 @@
   <string name="network_toast">Uh-oh! This app requires an internet connection</string>
   <string name="stock_symbol_does_not_exist">Searched for stock symbol does not exist.</string>
   <string name="stock_quote_already_saved">This stock is already saved!</string>
+  <string name="talkback_stock_symbol">"Stock symbol "</string>
+  <string name="talkback_change">"Change "</string>
+  <string name="talkback_bid_price">"Bid price "</string>
+  <string name="talkback_percent_change">"Percent change "</string>
+  <string name="talkback_fab_button">Add stock symbol</string>
 </resources>

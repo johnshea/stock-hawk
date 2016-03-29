@@ -96,6 +96,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 
 
     FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    fab.setContentDescription(getString(R.string.talkback_fab_button));
     fab.attachToRecyclerView(recyclerView);
     fab.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
