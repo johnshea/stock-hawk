@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:gravity="left|center_vertical"
+        android:gravity="start|center_vertical"
         tools:text="GOOG"
         />
 
@@ -24,9 +24,11 @@
         style="@style/PercentChangeTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_margin="3dp"
         android:background="@drawable/percent_change_pill"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         tools:text="100%"

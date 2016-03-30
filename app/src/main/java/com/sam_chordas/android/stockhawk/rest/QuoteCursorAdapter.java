@@ -1,6 +1,7 @@
 package com.sam_chordas.android.stockhawk.rest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -48,7 +49,11 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
   @Override
   public void onBindViewHolder(final ViewHolder viewHolder, final Cursor cursor){
     viewHolder.symbol.setText(cursor.getString(cursor.getColumnIndex("symbol")));
+    viewHolder.symbol.setContentDescription(mContext.getString(R.string.talkback_stock_symbol) + cursor.getString(cursor.getColumnIndex("symbol")));
+
     viewHolder.bidPrice.setText(cursor.getString(cursor.getColumnIndex("bid_price")));
+    viewHolder.bidPrice.setContentDescription(mContext.getString(R.string.talkback_bid_price) + cursor.getString(cursor.getColumnIndex("bid_price")));
+
     int sdk = Build.VERSION.SDK_INT;
     if (cursor.getInt(cursor.getColumnIndex("is_up")) == 1){
       if (sdk < Build.VERSION_CODES.JELLY_BEAN){
@@ -69,8 +74,10 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
     }
     if (Utils.showPercent){
       viewHolder.change.setText(cursor.getString(cursor.getColumnIndex("percent_change")));
+      viewHolder.change.setContentDescription(mContext.getString(R.string.talkback_percent_change) + cursor.getString(cursor.getColumnIndex("percent_change")));
     } else{
       viewHolder.change.setText(cursor.getString(cursor.getColumnIndex("change")));
+      viewHolder.change.setContentDescription(mContext.getString(R.string.talkback_change) + cursor.getString(cursor.getColumnIndex("change")));
     }
   }
 
@@ -80,6 +87,12 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
     String symbol = c.getString(c.getColumnIndex(QuoteColumns.SYMBOL));
     mContext.getContentResolver().delete(QuoteProvider.Quotes.withSymbol(symbol), null, null);
     notifyItemRemoved(position);
+
+    // Stock quote was removed from list
+    // Notify collection widget to update itself
+    Intent intent = new Intent();
+    intent.setAction("com.sam_chordas.android.stockhawk.ACTION_DATA_UPDATED");
+    mContext.sendBroadcast(intent);
   }
 
   @Override public int getItemCount() {
