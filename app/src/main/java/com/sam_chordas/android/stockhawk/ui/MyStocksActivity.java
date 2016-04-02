@@ -89,8 +89,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(this,
             new RecyclerViewItemClickListener.OnItemClickListener() {
               @Override public void onItemClick(View v, int position) {
-                //TODO:
-                // do something on item click
+
                 Intent intent = new Intent(getBaseContext(), MyDetailActivity.class);
 
                 TextView tv = (TextView) v.findViewById(R.id.stock_symbol);
