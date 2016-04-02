@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Binder;
+import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -95,9 +96,14 @@ class QuoteWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFac
         rv.setContentDescription(R.id.stock_symbol, mContext.getString(R.string.talkback_stock_symbol) + symbol);
 
         rv.setTextViewText(R.id.change, value);
-        rv.setContentDescription(R.id.change, mContext.getString(R.string.talkback_change) +  value);
+        rv.setContentDescription(R.id.change, mContext.getString(R.string.talkback_change) + value);
 
-        rv.setOnClickFillInIntent(R.id.widget_list_item, new Intent());
+        Bundle extras = new Bundle();
+        extras.putString("SYMBOL", symbol);
+
+        Intent fillInIntent = new Intent();
+        fillInIntent.putExtras(extras);
+        rv.setOnClickFillInIntent(R.id.widget_list_item, fillInIntent);
 
         return rv;
     }

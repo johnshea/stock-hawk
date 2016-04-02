@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.sam_chordas.android.stockhawk.R;
+import com.sam_chordas.android.stockhawk.ui.MyDetailActivity;
 import com.sam_chordas.android.stockhawk.ui.MyStocksActivity;
 
 /**
@@ -26,7 +27,11 @@ public class QuoteWidgetProvider extends AppWidgetProvider {
 
             rv.setRemoteAdapter(appWidgetIds[i], R.id.widget_list, intent);
 
-            Intent launchIntent = new Intent(context, MyStocksActivity.class);
+            Intent mainActivityIntent = new Intent(context, MyStocksActivity.class);
+            PendingIntent mainActivityPendingItent = PendingIntent.getActivity(context, 1, mainActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            rv.setOnClickPendingIntent(R.id.widget, mainActivityPendingItent);
+
+            Intent launchIntent = new Intent(context, MyDetailActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             rv.setPendingIntentTemplate(R.id.widget_list, pendingIntent);
 

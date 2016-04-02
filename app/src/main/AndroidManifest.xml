@@ -33,6 +33,10 @@
             android:name=".ui.MyDetailActivity"
             android:label="Stock Details"
             android:parentActivityName=".ui.MyStocksActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MyStocksActivity" />
         </activity>
 
         <service
