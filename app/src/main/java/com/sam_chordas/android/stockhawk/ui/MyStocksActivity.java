@@ -93,7 +93,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
                 // do something on item click
                 Intent intent = new Intent(getBaseContext(), MyDetailActivity.class);
 
-                  TextView tv = (TextView) v.findViewById(R.id.stock_symbol);
+                TextView tv = (TextView) v.findViewById(R.id.stock_symbol);
 
                 intent.putExtra("SYMBOL", tv.getText().toString());
                 startActivity(intent);
