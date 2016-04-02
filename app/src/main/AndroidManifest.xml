@@ -29,6 +29,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.MyDetailActivity"
+            android:label="Stock Details"
+            android:parentActivityName=".ui.MyStocksActivity">
+        </activity>
+
         <service
             android:name=".service.StockTaskService"
             android:exported="true"
@@ -60,7 +66,7 @@
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <activity android:name=".ui.MyDetailActivity"></activity>
+
     </application>
 
 </manifest>

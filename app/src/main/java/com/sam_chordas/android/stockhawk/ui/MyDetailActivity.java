@@ -1,6 +1,5 @@
 package com.sam_chordas.android.stockhawk.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +28,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class MyDetailActivity extends Activity {
+public class MyDetailActivity extends AppCompatActivity {
 
     private static String LOG_TAG = MyDetailActivity.class.getSimpleName();
 
